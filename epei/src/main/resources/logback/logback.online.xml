@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="60 seconds">
+	<property name="CONTEXT_NAME" value="epei" />
+	<property name="LOG_HOME" value="/var/log/webapps/${CONTEXT_NAME}" />
+	<contextName>${CONTEXT_NAME}</contextName>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>%d{yy-MM-dd HH:mm:ss} [%thread] %-5level %logger{25}:%L-[%X{orderNo}] %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/${CONTEXT_NAME}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/${CONTEXT_NAME}.log-%d{yyyy-MM-dd}.%i</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10240MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>			
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yy-MM-dd HH:mm:ss} [%thread] %-5level %logger{25}:%L-[%X{orderNo}] %msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- 异步 -->
+	<appender name="ASYNC_ROLLING_FILE" class="com.acooly.integration.log.LogbackAsyncAppender">
+		<appender-ref ref="ROLLING_FILE" />
+	</appender>		
+
+	<logger name="com.acooly.core.common.dao.jdbc.PagedJdbcTemplate" level="INFO" />
+	<logger name="com.acooly.loan.common.oscache" level="INFO" />
+	<!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="INFO" />
+	<logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="INFO" />
+	<logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />
+	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="INFO" />
+	<logger name="org.hibernate.cache" level="DEBUG" />
+	<logger name="org.springframework.aop.framework.Cglib2AopProxy" level="OFF" />
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="OFF" />
+	<logger name="jdbc" level="OFF" />
+
+	<!-- 日志输出级别 -->
+	<root level="INFO">
+		<appender-ref ref="ASYNC_ROLLING_FILE" />
+	</root>
+</configuration>

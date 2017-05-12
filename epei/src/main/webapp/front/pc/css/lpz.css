@@ -1,0 +1,261 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: arial,"microsoft yahei";
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+li{
+	list-style:none;
+}
+.top-line{
+	border-bottom: 2px solid rgb(255,180,20);
+}
+.header{
+	height: 100px;
+	width: 60%;
+	
+	margin: 0 auto;
+}
+.logo{
+	float: left;
+	height: 100px;
+	width: 205px;
+	display: inline-block;
+	line-height: 60px;
+	background: url(../images/logo.png) no-repeat center center;
+	background-size:160px 50px;
+
+}
+.logo img{
+	height: 40px;
+	line-height: 60px;
+}
+.header-line{
+	display: inline-block;
+	
+	height: 60px;
+	border: 1px solid #e8e8e8;
+	float: left;
+	
+	margin-top: 2%;
+}
+.header .text{
+	float: left;
+	display: inline-block;
+	line-height: 100px;
+	height: 100px;
+	font-size: 18px;
+	margin-left: 2%;
+}
+.header ul{
+	float: right;
+}
+.header li{
+	float: left;
+	width: 80px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	
+	margin-right: 20px;
+}
+.header li a{
+	display: inline-block;
+	width: 60px;
+	height: 100px;
+	color: #000;
+	font-weight: 700;
+}
+.header li a:hover{text-decoration: none;}
+.header ul .active{
+	background: url(../images/juxing-2-copy.png) no-repeat;
+	background-size: 80px 100px; 
+}
+.header ul .active a{
+	color:rgb(255,180,20);
+}
+@media only screen and (min-width: 1380px) {
+	body .row{
+		margin-right: 0px;
+    	margin-left: 0px;
+	} 
+}
+.content{
+	height: 440px;
+	width: 100%;
+	background-color: rgb(56,193,195);
+}
+.content .warp{
+	position: relative;
+	height: 440px;
+	
+	text-align: center;
+	/*background: url(../images/u2.png) no-repeat;
+	background-size: 910px 380px; 
+	border: 1px solid #f00;*/
+}
+.warp-li {
+	position: relative;
+	height: 440px;
+}
+.content .warp-li img{
+	width: 100px;
+	margin-top: 22%;
+}
+.warp-li .warp-text{
+	color: #fff;
+	font-size: 16px;
+	margin-top: 10%;
+}
+.warp-li a:hover{text-decoration: none;color: #fff;}
+.warp-li a{
+	margin-top: 20%;
+	display: inline-block;
+	color: #fff;
+	width: 135px;
+	height: 40px;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 40px;
+	background-color: rgb(255,180,20);
+	box-shadow: 6px 8px 5px rgba(0,0,0,.15);
+}
+.warp-line{
+	position: absolute;
+	right: 0;
+	top: 10%;
+	display: inline-block;
+	width: 1px;
+	height: 300px;
+	border-left: 1px solid rgba(255,255,255,.2);
+}
+.content .warp .warp-tex{
+	margin-top: 20%;
+}
+.content .warp .warp-tex p{
+	color:rgba(255,255,255,.7);
+	line-height: 15px;
+}
+.action{
+	height: 400px;
+	max-height: 500px;
+}
+.action-li img{
+	width: 100px;
+	max-width: 160px;
+	margin-top: 60px;
+}
+.action-1,.action-3{
+	height: 400px;
+	max-height: 500px;	
+	text-align: center;
+}
+.action-2{
+	height: 400px;
+	max-height: 500px;
+	text-align: center;
+}
+.action-title{
+	margin-top: 15%;
+	color: rgb(56,193,195);
+	font-size: 16px;
+}
+.action-text{
+	width: 75%;
+	color: rgba(0,0,0,.5);
+	margin: 0 auto;
+	margin-top: 20%;
+	font-size: 10px;
+}
+
+.foot{
+	width: 100%;
+	height: 205px;
+	max-height: 265px;
+	font-family: "微软雅黑";
+	/*line-height: 195px;*/
+	background-color:rgb(73,73,73) ;
+}
+.footer-left,.footer-right{
+	height: 205px;
+}
+.footer-left img{
+	display: inline-block;
+	line-height: 205px;
+	width: 120px;
+	margin-top: 8%;
+	margin-left: 8%;
+}
+.footer-left p{
+	/*display: inline-block;*/
+	color: #fff;
+	margin-top: 8px;
+	margin-left: 12%;
+	line-height: 16px;
+}
+
+.footer-right h3{
+	color: #fff;
+}
+.footer-right-1,.footer-right-2{
+	float: left;
+	display: inline-block;
+	margin-left: 5%;
+	height: 140px;
+	margin: 10px;
+}
+.footer-right-1{
+	width: 40%;
+}
+/*.footer-right-2{
+	width: 50%;
+}*/
+.footer-right-2 li:nth-child(2){
+	font-size: 10px;
+}
+.footer-right ul{
+	margin-top: 20px;
+}
+.footer-right-1 li a,.footer-right li{
+	color: #fff;
+}
+.footer-right .copy{
+	position: absolute;
+	height: 20px;
+	color: #fff;
+	font-size: 10px;
+	bottom: 10%;
+}
+
+
+@media only screen and (min-width: 1800px) {
+	.action{
+		height: 500px;
+	}
+	.action-title{
+		margin-top: 10%;
+		font-size: 24px;
+	}
+	.action-text{
+		width: 45%;
+		color: rgba(0,0,0,.5);
+		margin: 0 auto;
+		margin-top: 8%;
+		font-size: 16px;
+	}
+	.footer-left img{
+		margin-top: 5%;
+		margin-left: 8%;
+	}
+	.footer-right .copy{
+		bottom: 5%;
+	}
+	.action-li img{
+		width: 150px;
+	}
+}

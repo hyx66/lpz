@@ -1,0 +1,26 @@
+/* CSS Document */
+body{background:#f6f6f6}
+.huiyuan{height:43px;background-color:#ffffff}
+.huiyuan1{margin:10px;font-size:18px;padding-left:15px;float:left;}
+.huiyuannumber{margin:10px;font-size:18px;padding-right:15px;float:right;}
+.now{width:100%; height:40px; background:#FFFFFF}
+.now-left{width:49.8%; height:40px; background-color:#3dadae; float:left; line-height:20px; text-align:center; color:#FFFFFF;}
+.now-right{ width:49.8%; height:40px; background-color:#3dadae; float:right;line-height:20px; text-align:center; color:#FFFFFF;}
+.jine{ width:90%; margin:0 auto; margin-top:30px}
+.kuang{ width:29%; height:50px;border-radius:10px; border:solid 1px #38c1c3; line-height:50px; text-align:center; float:left}
+.kuang2{width:29%; height:50px;border-radius:10px; border:solid 1px #38c1c3; line-height:50px; text-align:center; margin-left:4%; margin-right:4%; float:left}
+.kuang3{ width:29%; height:50px;border-radius:10px; border:solid 1px #38c1c3; line-height:50px; text-align:center; float:right}
+.clear{ clear:both; overflow:hidden}
+.chongzhi{line-height:50px;}
+.chongzhi span{ color:#FF0000}
+.fenge{width:100%; height:2px; background:#FFFFFF}
+.way{ width:90%; margin:0 auto;}
+.wechat{ height:80px; background:#FFFFFF;padding-left:30px;}
+.wechat-left{ line-height:80px; width:50%; float:left}
+.wechat-left img{ vertical-align:middle; width:80px; height:80px}
+.wechat-right{ text-align:right; line-height:80px; padding-right:30px;}
+.wechat-right img{ width:30px; height:30px; margin-top:25px; margin-bottom:25px;}
+.buttom{ width:90%; border-radius:10px; margin:0 auto; background-color:#38c1c3; height:60px; margin-top:50px; text-align:center; line-height:60px; color:#FFFFFF}
+.foot{height:200px;}
+
+

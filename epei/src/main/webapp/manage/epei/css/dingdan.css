@@ -1,0 +1,124 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+.fl{
+	float: left;
+}
+.clr{
+	clear: both;
+	zoom: 1;
+}
+.title{
+	width: 1090px;
+	height: auto;
+	margin: 0 auto;
+}
+.title-top{
+	width: 1000px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #999;
+}
+.title-top a{
+	color: rgb(0,102,204);
+	margin-left: 100px;
+}
+.main{
+	width: 900px;
+	margin: 20px auto 0 100px;
+}
+.main-top{
+	border: 1px solid #999;
+	height: 50px;
+	line-height: 50px;
+}
+.main-top span{
+	margin-left: 30px;
+}
+form span{
+	color: rgb(255,102,0);
+}
+form label{
+	font-weight: normal;
+	line-height: 50px;
+}
+/*form input{
+	margin-left: 80px;
+}*/
+form .inp{
+	height: 40px;
+	width: 300px;
+	margin-left: 80px;
+}
+form .inp1{
+	height: 40px;
+	width: 300px;
+	margin-left: 65px;
+}
+form .inp2{
+	height: 40px;
+	width: 300px;
+	margin-left: 33px;
+}
+form .inp3{
+	height: 40px;
+	width: 300px;
+	margin-left: 48px;
+}
+form .beizhu{
+	width: 80%;
+	height: 80px;
+	margin:20px 0 0 115px;
+	text-align: left;
+}
+body input[type=checkbox]{
+	margin:0;
+}
+.am-input-group{
+	width: 300px;
+	margin-left: 85px;
+	margin-top: 10px;
+	display: inline-block;
+}
+form .black{
+	color: #000;
+}
+form .address{
+	height: 200px;
+	width: 80%;
+	margin-top: 10px;
+}
+.line{
+	width: 1000px;
+	margin-left: -100px;
+	border: 1px dashed #999;
+	margin-top: 25px;
+}
+.liuyan{margin-left: 100px;}
+.bottom-btn{margin:15px 0 0 175px;}
+.bottom-btn button{
+	height: 35px;
+	width: 128px;
+	text-align: center;
+	
+}
+.bottom-btn button:last-child{
+	margin-left: 20px;
+}
+.bottom-btn .active-btn{
+	border: none;
+	color: #fff;
+	background-color: rgb(255,51,0);
+}
+.sub-btn{
+	background: #fff;
+	border: 1px solid #333;
+}
+
+.empty{
+	height: 100px;
+}

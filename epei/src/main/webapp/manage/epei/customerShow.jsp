@@ -1,0 +1,146 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/manage/common/taglibs.jsp"%>
+<div style="padding: 5px;font-family:微软雅黑;">
+<center><h1>会员信息</h1></center>
+<table>
+	<tr>
+		<th>联系电话:</th>
+		<td>${customer.phoneNumber}</td>
+	</tr>					
+	<tr>
+		<th>会员编号:</th>
+		<td>${customer.cusNo}</td>
+	</tr>	
+	<tr>
+		<th>入会时间:</th>
+		<td><fmt:formatDate value="${customer.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+	</tr>				
+	<tr>
+		<th>姓名:</th>
+		<td>${customer.name}</td>
+	</tr>									
+	<tr>
+		<th>用户类型:</th>
+		<td>${customer.customerType==1?'医院管理员':'普通会员'}</td>
+	</tr>	
+	<tr>
+		<th>注册来源:</th>
+		<td>${customer.regOrigin}</td>
+	</tr>					
+	<tr>
+		<th>性别：</th>
+		<td>${customer.sex==1?'男':'女'}</td>
+	</tr>	
+	<tr>
+		<th>出生年月:</th>
+		<td>${customer.birthday}</td>
+	</tr>
+	<tr>
+		<th>籍贯:</th>
+		<td>${customer.nativePlace}</td>
+	</tr>		
+	<tr>
+		<th>邮箱:</th>
+		<td>${customer.email}</td>
+	</tr>	
+	<tr>
+		<th>职业:</th>
+		<td>${customer.profession}</td>
+	</tr>
+	<tr>
+		<th>地址:</th>
+		<td>${customer.address}</td>
+	</tr>		
+	<tr>
+		<th>身份证号码:</th>
+		<td>${customer.idCard}</td>
+	</tr>		
+	<tr>
+		<th>家庭成员:</th>
+		<td>${customer.family}</td>
+	</tr>	
+	<tr>
+		<th>婚姻状况:</th>
+		<td>${customer.maritalStatus==1?'已婚':'未婚'}</td>
+	</tr>	
+	<tr>
+		<th>文化程度:</th>
+		<td>${customer.degreeOfEducation}</td>
+	</tr>	
+	<tr>
+		<th>紧急联系人:</th>
+		<td>${customer.emergencyContactPerson}</td>
+	</tr>
+	<tr>
+		<th>与紧急联系人关系:</th>
+		<td>${customer.emergencyContactRelationship}</td>
+	</tr>
+	<tr>
+		<th>紧急联系人电话:</th>
+		<td>${customer.emergencyContactNumber}</td>
+	</tr>
+	<tr>
+		<th>个人既往病史:</th>
+		<td>${customer.medicalHistory}</td>
+	</tr>
+	<tr>
+		<th>家族遗传史:</th>
+		<td>${customer.geneticHistory}</td>
+	</tr>
+	<tr>
+		<th>生活习惯:</th>
+		<td>${customer.habits}</td>
+	</tr>
+	<tr>
+		<th>膳食结构:</th>
+		<td>${customer.diet}</td>
+	</tr>	
+	<tr>
+		<th>体检情况:</th>
+		<td>${customer.physical}</td>
+	</tr>	
+	<tr>
+		<th>会员来源:</th>
+		<td>${customer.source}</td>
+	</tr>
+	<tr>
+		<th>会员特权信息通知方式:</th>
+		<td>${customer.receiveInfo}</td>
+	</tr>
+</table>	
+<!--消费记录  -->
+<br/>
+<center><h1>消费记录</h1></center>
+<c:forEach var="customerOrder" items="${customerOrders}">
+<hr>
+	<table>	
+			<tr>
+				<th>日期:</th>
+				<td>${customerOrder.createTime}</td>
+		    </tr>
+		    <tr>
+				<th>项目:</th>
+				<c:choose>
+					<c:when test="${not empty customerOrder.bed}">
+						<td>陪护</td>
+					</c:when>
+					<c:otherwise>
+						<td>陪诊</td>
+					</c:otherwise>	
+				</c:choose>			
+		    </tr>
+		    <tr>
+				<th>金额:</th>
+				<td>${customerOrder.price}</td>
+		    </tr>
+		    <tr>
+				<th>服务专员:</th>
+				<td>${customerOrder.servicePersonId}</td>
+		    </tr>
+		    <tr>
+				<th>备注:</th>
+				<td>${customerOrder.note}</td>
+		    </tr> 
+	</table>
+</c:forEach>
+</div>

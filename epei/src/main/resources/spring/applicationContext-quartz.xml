@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+	default-lazy-init="true">
+
+	<description>Quartz 配置</description>
+	<!-- Schduler -->
+	<bean id="clusterQuartzScheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- Triggers集成 -->
+		<property name="triggers">
+			<list>
+				<ref bean="beforeOneDaySmsNotifyTaskTrigger"/>
+				<ref bean="oSASEndOfDayStatisticsTrigger"/>
+				<ref bean="cRREndOfDayStatisticsTrigger"/>
+				<ref bean="cREndOfDayStatisticsTrigger"/>
+				<ref bean="sPEndOfDayStatisticsTrigger"/>
+				<ref bean="lxyOrderBaseRefreshTrigger"/>
+			</list>
+		</property>
+		<!-- 启动时延期30秒开始任务 -->
+		<property name="startupDelay" value="30" />
+		<!-- Job接受applicationContext的成员变量名 -->
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+	</bean>
+
+	<!-- 逾期检查任務 -->
+	<bean id="beforeOneDaySmsNotifyTaskTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetBeanName" value="beforeOneDaySmsNotifyTask"/>
+                <property name="targetMethod" value="doIt"/>
+            </bean>
+		</property>
+		<property name="cronExpression" value="0 0 0 * * ?" />
+	</bean>
+	
+	<!--每日凌晨统计前一天的消费记录  -->
+	<bean id="oSASEndOfDayStatisticsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetBeanName" value="oSASEndOfDayStatistics"/>
+                <property name="targetMethod" value="main"/>
+            </bean>
+		</property>
+		<property name="cronExpression" value="0 0 0 * * ?" />
+	</bean>
+
+	<bean id="cRREndOfDayStatisticsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetBeanName" value="cRREndOfDayStatistics"/>
+                <property name="targetMethod" value="main"/>
+            </bean>
+		</property>
+		<property name="cronExpression" value="0 0 0 * * ?" />
+	</bean>
+
+	<bean id="cREndOfDayStatisticsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetBeanName" value="cREndOfDayStatistics"/>
+                <property name="targetMethod" value="main"/>
+            </bean>
+		</property>
+		<property name="cronExpression" value="0 0 0 * * ?" />
+	</bean>
+	
+	<bean id="sPEndOfDayStatisticsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetBeanName" value="spendEndOfDayStatistics"/>
+                <property name="targetMethod" value="main"/>
+            </bean>
+		</property>
+		<property name="cronExpression" value="0 0 0 * * ?" />
+	</bean>
+	
+	<bean id="lxyOrderBaseRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetBeanName" value="lxyOrderBaseRefresh"/>
+                <property name="targetMethod" value="main"/>
+            </bean>
+		</property>
+		<property name="cronExpression" value="0 0 0 * * ?" />
+	</bean>
+</beans>
